@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../Assets/backgroud.webp) ;
+}
+.container {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    backdrop-filter: blur(2px);
+    border: 2px solid #e2e2e2;
+    background:transparent;
+    padding: 30px 40px;
+    border-radius: 20px;
+}
+.header h1{
+    color: #fff;
+    text-align: center;
+}
+.container .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid blanchedalmond;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+.input-box input::placeholder{
+    color: aliceblue;
+
+}
+.input-box .icon{
+    position: absolute;
+    right: 10px;
+    top: 35%;
+    transform: translate(-50%);
+    font-size: 16px;
+    color: #fff;
+}
+.remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    margin-top: 20px;
+    color: #fff;
+}
+.remember-forgot input {
+    margin-right: 5px;
+}
+.remember-forgot a {
+    color: #fff;
+    text-decoration: none;
+}
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+.container button {
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #1c1818;
+    cursor: pointer;
+    font-size: 17px;
+    color: #1c1818;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.register-link {
+    text-align: center;
+    color: #fff;
+}
+.register-link p a{
+    color: #fff;
+    text-decoration: none;
+}
+.register-link p a:hover {
+    text-decoration: underline;
+}

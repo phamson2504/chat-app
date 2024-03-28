@@ -1,0 +1,89 @@
+.messContainer {
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+    gap: 0.1rem;
+    overflow: hidden;
+}
+
+.messHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background-color: rgb(30, 15, 78);
+
+    .messUserDetails {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .messAvatar {
+            img {
+                border-radius: 50%;
+                overflow: hidden;
+                height: 3rem;
+            }
+        }
+
+        .messUserName {
+            h3 {
+                color: white;
+            }
+        }
+    }
+}
+
+.messChatBox {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 0.2rem;
+
+        &-thumb {
+            background-color: #ffffff39;
+            width: 0.1rem;
+            border-radius: 1rem;
+        }
+    }
+
+    .message {
+        display: flex;
+        align-items: center;
+
+        .messContent {
+            max-width: 40%;
+            overflow-wrap: break-word;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border-radius: 1rem;
+            color: #d1d1d1;
+        }
+    }
+
+    .messSended {
+        justify-content: flex-end;
+
+        .messContent{
+
+            background-color: #7759bc21;
+        }
+        span{
+            font-size: 10px;
+        }
+    }
+
+    .messRecieved {
+        justify-content: flex-start;
+
+        .messContent {
+            background-color: #9d62c520;
+        }
+        span{
+            font-size: 10px;
+        }
+    }
+}
