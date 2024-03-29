@@ -51,11 +51,11 @@ io.on("connection", (socket) => {
             socket.to(sendUserSocket).emit("accept-a-f-request", data.user);
         }
     });
-    
+
     socket.on("send-msg", (data) => {
         const sendUserSocket = onlineUsers.get(data.to);
         if (sendUserSocket) {
-            socket.to(sendUserSocket).emit("msg-recieve", data.msg , data.from);
+            socket.to(sendUserSocket).emit("msg-recieve", data.msg, data.from);
         }
     });
 });

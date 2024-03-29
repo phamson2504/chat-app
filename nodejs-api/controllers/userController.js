@@ -129,6 +129,6 @@ module.exports.addFriendReponse = async (req, res, next) => {
         await user.updateOne({ $push: { friends: friend._id } });
         res.json({ msg: "Accept succession", status: true, auth: true });
     } catch (error) {
-
+        next()
     }
 }

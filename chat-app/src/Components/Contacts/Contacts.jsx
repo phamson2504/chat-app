@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import "./Contacts.css"
-import Logo from "../../Assets/logo.svg"
 import { IoIosPersonAdd } from "react-icons/io";
 import AddFriend from "../AddFriend/AddFriend";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -8,12 +7,15 @@ import axios from 'axios';
 import authHeader from "../../Service/auth-header";
 import { useNavigate } from "react-router-dom";
 import { addFriendRequest, getRequestFriends, getUserByEmail, getAllFriend, addFriendReponse } from '../../Untils/APIRoutes';
+import ImgAvatar from '../ImgAvatar/ImgAvatar';
 
 function Contacts({ socket, user, changeChat }) {
 
     const navigate = useNavigate();
-
+    
+    const [modalAvatar, setModalAvatar] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
+  
     const [friendSearch, setfriendSearch] = useState();
     const [addresEmail, setAdressEmail] = useState();
     const [requestAF, setRequestAF] = useState([]);
@@ -28,6 +30,13 @@ function Contacts({ socket, user, changeChat }) {
 
     const closeModal = () => {
         setModalOpen(false);
+    };
+    const openAvatar = () => {
+        setModalAvatar(true);
+    };
+
+    const closeAvatar = () => {
+        setModalAvatar(false);
     };
 
     const handleChange = (event) => {
@@ -45,6 +54,10 @@ function Contacts({ socket, user, changeChat }) {
         }
     }, []);
 
+    function errorForAuth () {
+        navigate("/login")
+    }
+
     const findFirend = async (event) => {
         event.preventDefault();
 
@@ -52,10 +65,10 @@ function Contacts({ socket, user, changeChat }) {
         if (data.auth === false) {
             navigate("/login")
         } else {
-            if (data.status === false){
+            if (data.status === false) {
                 alert(data.msg)
             }
-            else{
+            else {
                 setfriendSearch(data.user)
             }
 
@@ -91,8 +104,8 @@ function Contacts({ socket, user, changeChat }) {
 
     const addFriend = async (event) => {
         event.preventDefault();
-        
-        setfriendSearch(friendSearch.isDisabled == true);
+
+        setfriendSearch(friendSearch.isDisabled === true);
         const { data } = await axios.put(addFriendRequest + `/${user._id}`,
             { userId: friendSearch._id }, { headers: authHeader() });
         if (data.auth === false) {
@@ -138,8 +151,9 @@ function Contacts({ socket, user, changeChat }) {
     return (
         <div className='menuContainer'>
             <div className='menuBrand'>
-                <img src={Logo} alt="logo" />
-                <h3>Nosty</h3>
+                <div className='menuContainerSearch'>
+                    <input type="text" className="form-control" placeholder="Search..." />
+                </div>
                 <IoIosPersonAdd className='menuAddFriend' onClick={openModal} />
                 <AddFriend isOpen={modalOpen} onClose={closeModal}>
                     <div className='addFriendSearch'>
@@ -207,11 +221,13 @@ function Contacts({ socket, user, changeChat }) {
             </div>
             <div className='menuCurrentUser'>
                 <div className='menuAvatar'>
-                    <img src={user.avatarImage} alt='' />
+                    <img src={user.avatarImage} alt=''/>
+                    
                 </div>
-                <div className='menuUserName'>
+                <div className='menuUserName' onClick={openAvatar}>
                     <h3>{user.username}</h3>
                 </div>
+                <ImgAvatar isOpen={modalAvatar} onClose={closeAvatar} errorForAuth={errorForAuth}/>
             </div>
         </div>
     )

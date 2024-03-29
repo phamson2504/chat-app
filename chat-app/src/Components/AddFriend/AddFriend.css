@@ -4,7 +4,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     /* semi-transparent black overlay */
     display: flex;
     justify-content: center;
@@ -13,46 +12,42 @@
 
 .addFriendModal {
     position: relative;
-    background-color: rgb(15, 7, 58);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     /* drop shadow */
     display: grid;
-    grid-template-rows: 15% 65% 10%;
+    background-color:white;
+    grid-template-rows: 12% 69% 10%;
     width: 25%;
     height: 60%;
     overflow: auto;
 }
 
 .addFriendHeader {
-    border-bottom: 1px solid rgb(179, 152, 179);
-    h2{
-        color: white;
-    }
+    border-bottom: 1px solid rgb(31, 25, 31);
 }
 
 .addFriendClosebutton {
     position: absolute;
-    top: 12px;
-    right: 10px;
+    width: 20px;
+    top: 25px;
+    right: 20px;
     background: none;
     border: none;
     cursor: pointer;
 
     img {
-        width: 40%;
+        width: 100%;
     }
 }
 
 .addFriendBottom button {
     width: 100%;
     height: 40px;
-    background-color: #fff;
     border-radius: 40px;
-    box-shadow: 0 0 10px #1c1818;
+    border: 1px solid rgb(9, 7, 14);
     font-size: 17px;
-    color: #1c1818;
     font-weight: 700;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -67,7 +62,6 @@
     width: 14%;
     height: 35px;
     position: absolute;
-    color: white;
     top: 15px;
 }
 
@@ -76,13 +70,13 @@
     width: 15%;
     height: 30px;
     cursor: pointer;
-    border-radius: 5px;
-    border: 2px solid rgb(136, 119, 94);
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid rgb(30, 15, 78);
 
 }
 
 .addFriendSearch input {
-    color: white;
     margin-top: 10px;
     margin-left: 65px;
     width: 60%;
@@ -96,8 +90,7 @@
 }
 .addfriendSearchedHeader{
     h4{
-        margin-top: 10px;
-        text-align: center;
+        margin-top: 20px;
     }
 }
 
@@ -123,9 +116,9 @@
         width: 100%;
         height: 30px;
         cursor: pointer;
-        background-color: transparent;
+        color: black;
         border-radius: 10px;
-        border: 1px solid rgb(136, 119, 94);
+        border: 1px solid rgb(45, 44, 42);
     }
 
 }

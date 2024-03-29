@@ -9,6 +9,7 @@ export const addFriendRequest = `${host}/api/auth/addFriendRequest`
 export const getAllFriend = `${host}/api/auth/getAllFriend`
 export const getRequestFriends = `${host}/api/auth/getRequestFriends`
 export const addFriendReponse = `${host}/api/auth/addFriendReponse`
+export const setAvatar = `${host}/api/auth/setAvatar`
 
 // for mess
 export const getMessageRoute = `${host}/api/messages/getMess`;
